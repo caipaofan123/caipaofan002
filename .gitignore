@@ -1,0 +1,5 @@
+# 忽略 news 文件夹
+news/
+
+#忽略 newBaby.html
+newBaby.html
