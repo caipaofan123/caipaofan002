@@ -11,8 +11,35 @@
 <body>
     <h1>欢迎来到git世界</h1>
     <div id="cb">
+        <div :index="123">123</div>
         <button @click="a">{{btn}}</button>
         <p>{{num}}</p>
+
+        <div v-if="status==0">1</div>
+        <div v-else-if="status==12">2</div>
+        <div v-else-if="status==2">3</div>
+        <div v-else-if="status==1">4</div>
+        <div v-else="status==4">5</div>
+
+        <div v-for="a in arr">
+            {{a}}
+        </div>
+        <hr>
+        <div v-for="(value,k,index) in json" :k="index" >
+            {{k}}:{{value}}----{{index}}
+            <button @click="b">123</button>
+        </div>
+        <div v-for="(value,index) of string">
+            {{value}}:{{index}}
+        </div>
+
+        <div v-for="j of 10">{{j}}</div>
+        <div v-for="j of [1,2,3,4,5,6]">{{j}}</div>
+        <div v-for="j of '[1,2,3,4,5,6]'">{{j}}</div>
+
+        <p v-for="j of 6">哈哈哈哈哈哈</p>
+    
+
     </div>
 
 
@@ -24,6 +51,16 @@
                     num:0,
                     btn:'点我欢迎你',
                     timer:null,
+                    status:1,
+                    arr:[123,456,789,987,654,321],
+                    string:'nitamadeshibushishabi',
+                    json:{
+                        uname:'谢依雯',
+                        age:18,
+                        sex:'女',
+                        money:100000,
+                    }
+
                 }
             },
             methods:{
@@ -39,6 +76,9 @@
                         that.num++
 
                     },500)
+                },
+                b:function(){
+                    this.arr.push(190)
                 }
             }
         }).mount('#cb')
