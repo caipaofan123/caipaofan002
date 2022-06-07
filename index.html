@@ -6,9 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/vue3.js"></script>
 </head>
 <body>
     <h1>欢迎来到git世界</h1>
+    <div id="cb">
+        <button @click="a">{{btn}}</button>
+        <p>{{num}}</p>
+    </div>
+
+
+    <script>
+        Vue.createApp({
+            data: () => {
+                return {
+                    title:'你们好啊',
+                    num:0,
+                    btn:'点我欢迎你',
+                    timer:null,
+                }
+            },
+            methods:{
+                a:function(){
+                    
+                    let that = this;
+                    if (this.timer) {
+                        clearInterval(this.timer);
+                        
+                        return  this.timer=null
+                    }
+                    this.timer=setInterval(function(){
+                        that.num++
+
+                    },500)
+                }
+            }
+        }).mount('#cb')
+
+    </script>
 
     <script src="./js/index.js"></script>
 </body>
