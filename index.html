@@ -10,10 +10,11 @@
 </head>
 <body>
     <h1>欢迎来到git世界</h1>
+    <h1>
+        {{yuyuyu}}
+    </h1>
     <div id="cb">
-        <div :index="123">123</div>
-        <button @click="a">{{btn}}</button>
-        <p>{{num}}</p>
+        
 
         <div v-if="status==0">1</div>
         <div v-else-if="status==12">2</div>
@@ -47,6 +48,7 @@
         Vue.createApp({
             data: () => {
                 return {
+                    yuyuyu:请问额,
                     title:'你们好啊',
                     num:0,
                     btn:'点我欢迎你',
@@ -65,7 +67,6 @@
             },
             methods:{
                 a:function(){
-                    
                     let that = this;
                     if (this.timer) {
                         clearInterval(this.timer);
